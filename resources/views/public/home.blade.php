@@ -15,18 +15,20 @@
         @foreach($landmarks as $landmark)
             <div class="col-md-4">
                 <div class="card h-100 shadow-sm">
-                    {{-- Imagem do marco --}}
+                    {{-- Thumbnail reduzida --}}
                     @if($landmark->photos->count())
                         <img 
-                            src="{{ asset('storage/' . $landmark->photos->first()->url) }}" 
-                            class="card-img-top" 
+                            src="{{ asset($landmark->photos->first()->url) }}" 
+                            class="card-img-top"
                             alt="{{ $landmark->name }}"
+                            style="height:150px; object-fit:cover;"
                         >
                     @else
                         <img 
                             src="{{ asset('images/placeholder.png') }}" 
                             class="card-img-top" 
                             alt="Sem imagem disponível"
+                            style="height:150px; object-fit:cover;"
                         >
                     @endif
 

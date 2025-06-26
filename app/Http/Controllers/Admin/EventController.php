@@ -67,4 +67,12 @@ class EventController extends Controller
         return redirect()->route('admin.events.index')
                          ->with('success', 'Evento removido com sucesso!');
     }
+
+     public function show(Event $event)
+    {
+        // Carrega o marco associado (e, se necessário, comentários/avaliações do evento)
+        $event->load('landmark');
+
+        return view('public.event', compact('event'));
+    }
 }

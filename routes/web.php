@@ -15,7 +15,8 @@ use App\Http\Controllers\Public\EvaluationController;
 Route::get('/', [LandmarkController::class, 'index'])->name('home');
 Route::view('/map', 'public.map')->name('map');
 Route::get('/landmark/{landmark}', [LandmarkController::class, 'show'])->name('landmark.show');
-Route::get('/event/{event}', [EventController::class, 'show'])->name('event.show');
+Route::get('/event/{event}', [\App\Http\Controllers\Public\EventController::class, 'show'])->name('event.show');
+
 Route::post('/comment', [CommentController::class, 'store'])->name('comment.store');
 Route::post('/evaluation', [EvaluationController::class, 'store'])->name('evaluation.store');
 

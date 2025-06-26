@@ -7,6 +7,8 @@ use App\Models\Landmark;
 
 class LandmarkController extends Controller
 {
+
+    
     /**
      * Exibe a listagem de marcos na página inicial.
      */
@@ -24,8 +26,10 @@ class LandmarkController extends Controller
     public function show(Landmark $landmark)
     {
         // Carrega relacionamentos necessários
-        $landmark->load(['photos', 'comments.user', 'evaluations']);
+        $landmark->load(['photos', 'comments.user', 'evaluations', 'events']);
 
         return view('public.landmark', compact('landmark'));
     }
+
+    
 }
